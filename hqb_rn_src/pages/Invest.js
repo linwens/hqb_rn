@@ -6,20 +6,24 @@
 
 import React, { Component } from 'react';
 import {
+  Platform,
   StyleSheet,
   Text,
   View,
+  TouchableHighlight
 } from 'react-native';
 
 //引入项目组件
-import Main from './hqb_rn_src/pages/Main';
 
+//网络请求
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Main />
+        <Text style={styles.welcome}>
+          这里是投资页
+        </Text>
       </View>
     );
   }
@@ -28,9 +32,18 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'blue',
-  }
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
 });

@@ -2,13 +2,16 @@
 import React, { Component } from 'react';
 import {
   View,
+  Text,
   StyleSheet
 } from 'react-native';
 
 //引入第三方库
 import TabNavgator from 'react-native-tab-navigator'
 //引入项目组件
-import Home from './home'
+import Home from './Home'
+import Invest from './Invest'
+import Mine from './Mine'
 //定义组件内容
 export default class Main extends Component {
 	constructor(props){
@@ -32,15 +35,27 @@ export default class Main extends Component {
 						title='首页'
 						titleStyle={styles.tabText}
                         selectedTitleStyle={styles.curTabText}
-                        onPress={this.setState({ curTab: '首页' })}
+                        onPress={()=>this.setState({ curTab: '首页' })}
 					>
 						<Home />
 					</TabNavgator.Item>
-					<TabNavgator.Item>
-						{tabText[1]}
+					<TabNavgator.Item
+						selected={this.state.curTab==='投资'}
+						title='投资'
+						titleStyle={styles.tabText}
+                        selectedTitleStyle={styles.curTabText}
+                        onPress={()=>this.setState({ curTab: '投资' })}
+					>
+						<Invest />
 					</TabNavgator.Item>
-					<TabNavgator.Item>
-						{tabText[2]}
+					<TabNavgator.Item
+						selected={this.state.curTab==='我的'}
+						title='我的'
+						titleStyle={styles.tabText}
+                        selectedTitleStyle={styles.curTabText}
+                        onPress={()=>this.setState({ curTab: '我的' })}
+					>
+						<Mine />
 					</TabNavgator.Item>
 				</TabNavgator>
 			</View>
