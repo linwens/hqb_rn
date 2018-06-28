@@ -32,7 +32,7 @@ class FetchSample extends Component {
 
   //get方法
   get(){
-    doAjax.get('http://testh5.huaqiaobao.cn/gatezuul/hqb-activity/worldCup/topEight',{
+    doAjax('http://testh5.huaqiaobao.cn/gatezuul/hqb-activity/worldCup/topEight','GET',{
       appkey:'kTjxJFdkA1POnvgg',
       access_token:'46992da6e5f074f251d455598b581d',
       ts:1529982806,

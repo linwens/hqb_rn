@@ -2,7 +2,7 @@
 hqb react-native project
 
 ## 关于目录结构
----
+
 hab_rn_src文件夹下存放项目代码
 
 ├─hqb_rn_src </br>
@@ -14,3 +14,8 @@ hab_rn_src文件夹下存放项目代码
 │  └─utils       //存放公共方法 </br>
 
 ## 关于commit 说明格式
+
+## 参考资料
+
+React Navigation： https://reactnavigation.org/docs/zh-Hans/getting-started.html </br>
+React Native中文网： https://reactnative.cn/docs/0.51/getting-started.html <br>
