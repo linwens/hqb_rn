@@ -9,20 +9,26 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View,
-  TouchableHighlight
+  Button,
+  View
 } from 'react-native';
 
 //引入项目组件
-
-//网络请求
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component{
+  static navigationOptions=({navigation})=>{
+    return{
+      header:null
+    }
+  }
   render() {
     return (
       <View style={styles.container}>
+        <Button
+          title="go activity page"
+          onPress={()=>this.props.navigation.push('Activity')}
+        ></Button>
         <Text style={styles.welcome}>
-          这里是“我的”页面
+          这里是投资列表页
         </Text>
       </View>
     );

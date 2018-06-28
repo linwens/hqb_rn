@@ -9,25 +9,30 @@ import {
   Platform,
   StyleSheet,
   Text,
+  Button,
   View,
   TouchableHighlight
 } from 'react-native';
 
 //引入项目组件
+import { createStackNavigator } from 'react-navigation';
+//用到的页面
+import ActiveScreen from '../pages/active'
+import HomeScreen from '../pages/Home/index'
 
-//网络请求
-type Props = {};
-export default class App extends Component<Props> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          这里是投资页
-        </Text>
-      </View>
-    );
-  }
-}
+//把这组导航路由塞给main
+export default createStackNavigator({
+  Home:HomeScreen,
+  Activity:ActiveScreen,
+},{
+  initialRouteName:'Home',
+  navigationOptions: {
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+  },
+});
+
 
 const styles = StyleSheet.create({
   container: {
