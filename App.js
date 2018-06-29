@@ -10,7 +10,9 @@ import {
   Text,
   Button,
   View,
+  YellowBox,//隐藏isMounted(...)警告的提示，彻底根除要等到RN下一个版本 https://github.com/facebook/react-native/issues/18868
 } from 'react-native';
+YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated'])
 //import RootStack from './hqb_rn_src/nav';
 //引入项目组件
 import Main from './hqb_rn_src/model/Main';
