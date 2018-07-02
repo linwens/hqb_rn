@@ -19,11 +19,12 @@ import { createStackNavigator } from 'react-navigation';
 //用到的页面
 import ActiveScreen from '../pages/active'
 import HomeScreen from '../pages/Home/index'
-
+import AnimatedScreen from '../pages/animated'
 //把这组导航路由塞给main
 export default createStackNavigator({
   Home:HomeScreen,
   Activity:ActiveScreen,
+  Animated:AnimatedScreen,
 },{
   initialRouteName:'Home',
   navigationOptions: {

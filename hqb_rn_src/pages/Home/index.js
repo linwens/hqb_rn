@@ -15,7 +15,6 @@ import {
 } from 'react-native';
 
 //引入项目组件
-import { createStackNavigator } from 'react-navigation';
 //网络请求
 class FetchSample extends Component {
   render(){
@@ -60,6 +59,10 @@ export default class App extends Component{
         <Text style={styles.welcome}>
           这里是首页
         </Text>
+        <Button
+          title="go animated page"
+          onPress={()=>this.props.navigation.push('Animated')}
+        ></Button>
         <FetchSample />
       </View>
     );

@@ -17,12 +17,30 @@ YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated'])
 //引入项目组件
 import Main from './hqb_rn_src/model/Main';
 import HTTP from './hqb_rn_src/http';//为了能使用global里的方法
+import Loading from './hqb_rn_src/pages/Loading'//引入loading组件
 type Props = {};
+
+//定义开关loading的全局方法，使得所有组件可以调用
+global.showLoading = null;
+global.closeLoading = null;
 export default class App extends Component<Props> {
+  constructor(props){
+    super(props)
+    this.loading = null;//用来存放Loading组件实例中的方法，通过ref属性
+  }
+  componentDidMount(){
+    global.showLoading = ()=>{
+      this.loading.show();//show、close方法定义在loading组件里
+    }
+    global.closeLoading = ()=>{
+      this.loading.close();
+    }
+  }
   render() {
     return (
       <View style={styles.container}>
-        <Main></Main>
+        <Main />
+        <Loading ref={(r)=>{this.loading = r}} isVisible={false}/>{/*isVisible让loading初始化隐藏*/}
       </View>
     );
   }

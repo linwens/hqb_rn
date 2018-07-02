@@ -13,6 +13,7 @@ const instance = axios.create({
 instance.interceptors.request.use((config)=>{
 	//在发送请求之前
 	console.log(config);
+	showLoading();//请求发出，显示loading
 	return config;
 },(err)=>{
 	//请求出错时
@@ -27,9 +28,11 @@ instance.interceptors.response.use((response)=>{
 	**/
 	if(response.config.custom){//这里对返回数据做自定义处理
 		console.log('-------进来自定义处理啦');
+		closeLoading();//响应完成，隐藏loading
 		return response.data;
 	}
 	//下面对返回的数据做统一处理
+	closeLoading();//响应完成，隐藏loading
 	return response.data;
 },(err)=>{
 	//响应出错
