@@ -19,10 +19,12 @@ import { createStackNavigator } from 'react-navigation';
 //用到的页面
 import ActiveScreen from '../pages/active'
 import InvestScreen from '../pages/Invest/index'
+import InvestList from '../pages/Invest/bidList'
 //
 export default createStackNavigator({
   Invest:InvestScreen,
   Activity:ActiveScreen,
+  InvestList:InvestList,//标列表
 },{
   initialRouteName:'Invest',
   navigationOptions: {

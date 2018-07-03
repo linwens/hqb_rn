@@ -24,8 +24,8 @@ export default class App extends Component{
     return (
       <View style={styles.container}>
         <Button
-          title="go activity page"
-          onPress={()=>this.props.navigation.push('Activity')}
+          title="go InvestList page"
+          onPress={()=>this.props.navigation.push('InvestList')}
         ></Button>
         <Text style={styles.welcome}>
           这里是投资列表页
