@@ -20,11 +20,13 @@ import { createStackNavigator } from 'react-navigation';
 import ActiveScreen from '../pages/active'
 import HomeScreen from '../pages/Home/index'
 import AnimatedScreen from '../pages/animated'
+import WebviewScreen from '../components/Webview'
 //把这组导航路由塞给main
 export default createStackNavigator({
   Home:HomeScreen,
   Activity:ActiveScreen,
   Animated:AnimatedScreen,
+  Webview:WebviewScreen,//webview
 },{
   initialRouteName:'Home',
   navigationOptions: {

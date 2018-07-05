@@ -15,6 +15,7 @@ import Home from './Home'
 import Invest from './Invest'
 import Mine from './Mine'
 
+//+?/有个问题，如果三个模块下都使用一个组件，那路由要写三遍
 export default createBottomTabNavigator({
 	Home:Home,
 	Invest:Invest,

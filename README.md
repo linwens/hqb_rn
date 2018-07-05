@@ -13,8 +13,13 @@ hab_rn_src文件夹下存放项目代码
 │  ├─pages       //存放页面组件 </br>
 │  └─utils       //存放公共方法 </br>
 
-## 关于commit 说明格式
+## 关于commit -m 说明格式
 
+## 关于命名规则
+   * 文件夹命名方式采用：小写+下划线；如：hqb_module
+   * 文件,组件命名方式我们采用帕斯卡命名规则,首字母大写,后续单词首字母都大写,如：HqbLoading.js
+   * 函数、常量、变量等采用驼峰命名规则,首字母小写,后续单词首字母都大写如：hqbLoading
+   
 ## 参考资料
 
 React Navigation： https://reactnavigation.org/docs/zh-Hans/getting-started.html </br>

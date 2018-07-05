@@ -56,6 +56,12 @@ export default class App extends Component{
           title="go activity page"
           onPress={()=>this.props.navigation.push('Activity')}
         ></Button>
+        <Button
+          title="go webview"
+          onPress={()=>this.props.navigation.push('Webview',{
+            url:'https://m.hqblicai.com/user/activity/worldCup.html#/'
+          })}
+        ></Button>
         <Text style={styles.welcome}>
           这里是首页
         </Text>

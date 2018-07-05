@@ -17,7 +17,7 @@ YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated'])
 //引入项目组件
 import Main from './hqb_rn_src/model/Main';
 import HTTP from './hqb_rn_src/http';//为了能使用global里的方法
-import Loading from './hqb_rn_src/pages/Loading'//引入loading组件
+import Loading from './hqb_rn_src/components/Loading'//引入loading组件
 type Props = {};
 
 //定义开关loading的全局方法，使得所有组件可以调用
