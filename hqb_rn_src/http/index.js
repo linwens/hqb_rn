@@ -4,16 +4,67 @@
  *
 **/
 import axios from 'axios'
+//基本参数
+import forge from "node-forge";
+// const baseUrl = "http://kaifa.huaqiaobao.cn/";//开发站
+const baseUrl = "http://moni.huaqiaobao.cn";//模拟站
+// const baseUrl = "https://www.hqblicai.com/";//正式站
 
+const APP_KEY = "42121AAF5F09205A6C56ED5A4CE1A887";
+const APP_SECRET = "72789CB4BD41A0DC";
+const version = "3.3";
+let ts = parseInt(new Date().getTime()/1000); 
+
+/*
+ *签名signa = MD5(MD5(appsecret+ts+sign_method+version)+appkey+oauth_token).toUpperCase()
+ */
+function createSigna(token){
+    const md5 = forge.md.md5.create();
+    const md = forge.md.md5.create();
+    md.update(APP_SECRET + ts + "MD5" + version);
+    md5.update(md.digest().toHex() + APP_KEY + token);
+    let md5Str = md5.digest().toHex().toUpperCase();
+    return md5Str;
+};
+//创建axios实例
 const instance = axios.create({
 	headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 	timeout:5000,
 });
 //创建请求拦截器
-instance.interceptors.request.use((config)=>{
+instance.interceptors.request.use(async (config)=>{
 	//在发送请求之前
+	console.log('---before----');
 	console.log(config);
 	showLoading();//请求发出，显示loading
+    //这里是公共参数：appkey,token,ts,version,放入headers.Authorization
+    let oauth_token = await storage.load({//await 等待 Promise 对象的状态被 resolved
+        key:'userData'
+    }).then(ret=>{
+    	console.log(ret);
+    	return ret.oauth_token;
+    }).catch(err=>{
+    	console.log(err);
+    	return ''
+    });
+    console.log('oauth_token-=-=-=-=-==-=--');
+    console.log(oauth_token);
+    // config.headers.Authorization = JSON.stringify({
+    //     "oauth_token": oauth_token,//用户token要做redux存储
+    //     "appkey":APP_KEY,
+    //     "ts": ts,
+    //     "version":version,
+    //     "signa": createSigna(oauth_token)
+    // });
+    config.params = Object.assign({
+    	"oauth_token": oauth_token,//用户token要做redux存储
+    	"appkey":APP_KEY,
+    	"ts": ts,
+    	"version":version,
+    	"signa": createSigna(oauth_token)
+    },config.params)
+    console.log('---after----');
+    console.log(config);
 	return config;
 },(err)=>{
 	//请求出错时
@@ -42,7 +93,7 @@ instance.interceptors.response.use((response)=>{
 const doAjax = (url='', type='', params={}, noInter=false)=>{
 	return new Promise((resolve, reject)=>{
 		instance({
-			url:url,
+			url:baseUrl+url,
 			method:type,
 			params:params,
 			custom:noInter,//接口走通情况下不走统一处理，自定义处理方法 Bealoon

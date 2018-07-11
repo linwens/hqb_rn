@@ -6,6 +6,7 @@ import {
     StyleSheet,
     Text,
     View,
+    TouchableOpacity,
 } from 'react-native';
 
 export default class Loading extends Component{
@@ -33,7 +34,7 @@ export default class Loading extends Component{
                 visible={this.state.modalVisible}
                 onRequestClose={()=>{console.log('modal已关闭')}}
             >{/*onRequestClose在安卓是必须的*/}
-                <View style={styles.loadingBox}>
+                <TouchableOpacity style={styles.loadingBox} onPress={()=>{this.close()}}>
                     <View style={styles.IndicatorBox}>
                         <ActivityIndicator
                             animating={this.state.loadingIcon}
@@ -46,7 +47,7 @@ export default class Loading extends Component{
                             }}
                         />
                     </View>
-                </View>
+                </TouchableOpacity>
             </Modal>
         )
     }

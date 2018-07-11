@@ -18,11 +18,16 @@ import { createStackNavigator } from 'react-navigation';
 //用到的页面
 import ActiveScreen from '../pages/active'
 import MineScreen from '../pages/Mine/index'
-
+import PhoneScreen from '../pages/phone'
+import LoginScreen from '../pages/login'
+import RegisterScreen from '../pages/register'
 //把这组导航路由塞给main
 export default createStackNavigator({
   Mine:MineScreen,
   Activity:ActiveScreen,
+  Phone:PhoneScreen,
+  Login:LoginScreen,
+  Register:RegisterScreen
 },{
   initialRouteName:'Mine',
   navigationOptions: {

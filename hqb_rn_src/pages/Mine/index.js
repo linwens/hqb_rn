@@ -22,11 +22,13 @@ export default class App extends Component{
     }
   }
   render() {
+    console.log('storage--------=-=-==-=');
+    console.log(storage.cache.userData);
     return (
       <View style={styles.container}>
         <Button
           title="go activity page"
-          onPress={()=>this.props.navigation.push('Activity')}
+          onPress={()=>this.props.navigation.push('Phone')}
         ></Button>
         <Text style={styles.welcome}>
           这里是我的首页
