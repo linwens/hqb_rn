@@ -24,3 +24,4 @@ hab_rn_src文件夹下存放项目代码
 
 React Navigation： https://reactnavigation.org/docs/zh-Hans/getting-started.html </br>
 React Native中文网： https://reactnative.cn/docs/0.51/getting-started.html <br>
+持久化存储react-native-storage： https://github.com/sunnylqm/react-native-storage/blob/master/README-CHN.md <br>

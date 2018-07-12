@@ -39,7 +39,13 @@ instance.interceptors.request.use(async (config)=>{
 	showLoading();//请求发出，显示loading
     //这里是公共参数：appkey,token,ts,version,放入headers.Authorization
     let oauth_token = await storage.load({//await 等待 Promise 对象的状态被 resolved
-        key:'userData'
+        key:'userData',
+        syncParams: {
+        	extraFetchOptions: {
+        	// 各种参数
+        	},
+        	someFlag: true,
+        },
     }).then(ret=>{
     	console.log(ret);
     	return ret.oauth_token;
