@@ -1,8 +1,6 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+ * 用于配置Home模块下的路由信息
+**/
 
 import React, { Component } from 'react';
 import {

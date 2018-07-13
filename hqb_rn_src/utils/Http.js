@@ -4,7 +4,7 @@
  *
 **/
 import axios from 'axios'
-//基本参数
+//node-forge用于md5加密
 import forge from "node-forge";
 // const baseUrl = "http://kaifa.huaqiaobao.cn/";//开发站
 const baseUrl = "http://moni.huaqiaobao.cn";//模拟站
@@ -33,7 +33,7 @@ const instance = axios.create({
 });
 //创建请求拦截器
 instance.interceptors.request.use(async (config)=>{
-	//在发送请求之前
+	//在发送请求之前显示loading，设置公共传参
 	console.log('---before----');
 	console.log(config);
 	showLoading();//请求发出，显示loading

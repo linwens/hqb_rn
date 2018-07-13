@@ -73,6 +73,7 @@ export default class hqbWebview extends Component{
 			shareModal:!self.state.shareModal
 		})
 	}
+	//自定义导航栏，加一个分享按钮
 	static navigationOptions= ({navigation})=>{
 		console.log('navigation.state.params--------');
 		console.log(navigation.state.params);
